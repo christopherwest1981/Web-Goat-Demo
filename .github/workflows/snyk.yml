@@ -1,0 +1,44 @@
+name: 
+
+on: 
+    workflow_call:
+     inputs:
+       flag_code:
+         required: false
+         type: string
+       flag_test:
+         required: false
+         type: string
+       flag_iac:
+         required: false
+         type: string
+     secrets:
+       SNYK_TOKEN:
+         required: true
+jobs:
+  Setup-and-run-snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+
+  # ────────────────────────────────────────────────────────────
+  # 1. Snyk Install /Authenticate
+  # ────────────────────────────────────────────────────────────
+
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      - name: Authenticate Snyk
+        run: 
+          export SNYK_TOKEN=${{ secrets.SNYK_TOKEN }}
+          snyk auth $SNYK_TOKEN --auth-type=token
+
+         
+       
+        
+      
+    
