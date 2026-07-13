@@ -1,17 +1,17 @@
 name: Snyk CLI Install
 
 on: 
-    workflow_call:
-     inputs:
-       flag_code:
-         required: false
-         type: string
-       flag_test:
-         required: false
-         type: string
-       flag_iac:
-         required: false
-         type: string
+    workflow_dispatch
+     # inputs: 
+     #   flag_code:
+     #     required: false
+     #     type: string
+     #   flag_test:
+     #     required: false
+     #     type: string
+     #   flag_iac:
+     #     required: false
+     #     type: string
      secrets:
        SNYK_TOKEN:
          required: true
