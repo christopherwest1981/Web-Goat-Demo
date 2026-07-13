@@ -1,7 +1,7 @@
 name: Snyk CLI Install
 
 on: 
-    workflow_dispatch
+    workflow_dispatch:
      # inputs: 
      #   flag_code:
      #     required: false
